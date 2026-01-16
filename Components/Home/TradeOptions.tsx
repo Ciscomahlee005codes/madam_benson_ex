@@ -1,7 +1,6 @@
 const TradeOptions = () => {
   return (
     <section
-      id="trade"
       className="relative py-28 bg-black text-white overflow-hidden"
     >
       {/* Subtle background glow */}

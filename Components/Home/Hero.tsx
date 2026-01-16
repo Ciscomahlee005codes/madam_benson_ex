@@ -31,14 +31,14 @@ const Hero = () => {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href="/register"
+              href="/auth"
               className="px-7 py-3 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-semibold shadow-lg hover:scale-105 transition-transform"
             >
               Start Trading
             </a>
 
             <a
-              href="#trade"
+              href="/market"
               className="px-7 py-3 rounded-full border border-white/20 hover:bg-white/10 transition"
             >
               View Rates

@@ -36,7 +36,6 @@ const LiveMarket = () => {
 
   return (
     <section
-      id="market"
       className="relative py-28 bg-black text-white overflow-hidden"
     >
       {/* Background glow */}

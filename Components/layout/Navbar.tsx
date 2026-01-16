@@ -22,10 +22,10 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10 text-sm text-gray-300">
-            {['Market', 'Trade', 'Gift Cards', 'FAQ'].map((item) => (
+            {['Market', 'Trade', 'Gift-Cards', 'About'].map((item) => (
               <Link
                 key={item}
-                href={`#${item.toLowerCase().replace(' ', '')}`}
+                href={`${item.toLowerCase().replace(' ', '')}`}
                 className="relative group"
               >
                 {item}
@@ -64,7 +64,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-black/95 backdrop-blur-xl px-6 py-6 space-y-5 text-gray-300">
-          {['Market', 'Trade', 'Gift Cards', 'FAQ'].map((item) => (
+          {['Market', 'Trade', 'Gift-Cards', 'About'].map((item) => (
             <Link
               key={item}
               href="#"
