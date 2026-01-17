@@ -3,6 +3,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const navLinks = [
+  { name: 'Market', href: '/market' },
+  { name: 'Trade', href: '/trade' },
+  { name: 'Gift Cards', href: '/gift-cards' },
+  { name: 'About', href: '/about' },
+];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
@@ -22,19 +29,19 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10 text-sm text-gray-300">
-            {['Market', 'Trade', 'Gift-Cards', 'About'].map((item) => (
+            {navLinks.map((link) => (
               <Link
-                key={item}
-                href={`${item.toLowerCase().replace(' ', '')}`}
-                className="relative group"
+                key={link.name}
+                href={link.href}
+                className="relative group hover:text-white transition"
               >
-                {item}
+                {link.name}
                 <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-amber-400 transition-all group-hover:w-full" />
               </Link>
             ))}
           </div>
 
-          {/* Actions */}
+          {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-6">
             <Link
               href="/auth"
@@ -51,10 +58,11 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-white text-xl"
+            className="md:hidden text-white text-2xl"
+            aria-label="Toggle menu"
           >
             ☰
           </button>
@@ -63,24 +71,30 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-black/95 backdrop-blur-xl px-6 py-6 space-y-5 text-gray-300">
-          {['Market', 'Trade', 'Gift-Cards', 'About'].map((item) => (
+        <div className="md:hidden bg-black/95 backdrop-blur-xl px-6 py-6 space-y-6 text-gray-300">
+          {navLinks.map((link) => (
             <Link
-              key={item}
-              href="#"
+              key={link.name}
+              href={link.href}
               onClick={() => setOpen(false)}
-              className="block"
+              className="block text-lg hover:text-white transition"
             >
-              {item}
+              {link.name}
             </Link>
           ))}
 
-          <div className="pt-4 space-y-3">
-            <Link href="/auth" className="block">
-              Sign In
-            </Link>
+          <div className="pt-6 space-y-3">
             <Link
               href="/auth"
+              onClick={() => setOpen(false)}
+              className="block"
+            >
+              Sign In
+            </Link>
+
+            <Link
+              href="/auth"
+              onClick={() => setOpen(false)}
               className="block text-center rounded-full bg-amber-400 py-2 text-black font-medium"
             >
               Get Started
